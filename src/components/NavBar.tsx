@@ -10,7 +10,7 @@ const NavBar = () => {
         <img className="logo" src={logo} />{" "}
       </div>
 
-      <div className="flex gap-6">
+      <div className="flex gap-4 md:gap-6">
         <FontSelector />
         <div className="flex gap-2">
           <Toggle />
