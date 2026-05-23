@@ -1,4 +1,5 @@
 import logo from "../assets/Logo.svg";
+import FontSelector from "./FontSelector";
 
 const NavBar = () => {
   return (
@@ -6,8 +7,11 @@ const NavBar = () => {
       <div>
         <img className="logo" src={logo} />{" "}
       </div>
-      <div></div>
-      <div></div>
+
+      <div>
+        <FontSelector />
+        <div></div>
+      </div>
     </nav>
   );
 };
