@@ -1,6 +1,7 @@
 import logo from "../assets/Logo.svg";
 import FontSelector from "./FontSelector";
 import Toggle from "./Toggle";
+import moon from "../assets/moon.svg";
 
 const NavBar = () => {
   return (
@@ -11,7 +12,10 @@ const NavBar = () => {
 
       <div className="flex gap-6">
         <FontSelector />
-        <Toggle />
+        <div className="flex gap-2">
+          <Toggle />
+          <img src={moon} className="h-5 self-center" />
+        </div>
       </div>
     </nav>
   );
