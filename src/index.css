@@ -1,0 +1,31 @@
+.container {
+  width: 327px;
+  margin: 0 auto;
+}
+
+.navbar {
+  width: 100%;
+  height: 32px;
+}
+
+.logo {
+  height: 28px;
+  width: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 690px;
+  }
+
+  .logo {
+    height: 36px;
+    width: 32px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .container {
+    width: 736px;
+  }
+}
