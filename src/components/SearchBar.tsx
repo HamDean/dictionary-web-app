@@ -10,7 +10,7 @@ const SearchBar = ({ onSearch }: Props) => {
   };
 
   return (
-    <form action={handleSubmit}>
+    <form action={handleSubmit} className="mt-6 md:mt-14 mb-6 md:mb-12">
       <label className="input py-3.5 px-6 md:w-full border-none rounded-2xl outline-none h-12 md:h-16 bg-[#F4F4F4]">
         <input
           name="word"

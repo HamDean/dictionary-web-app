@@ -1,4 +1,4 @@
-import { CanceledError } from "axios";
+import { AxiosError, CanceledError } from "axios";
 import { useEffect, useState } from "react";
 import definitionService from "../services/definition-service";
 interface Definition {
@@ -23,21 +23,26 @@ export interface WordDefinition {
 
 const useDefinitions = () => {
   const [definition, setDefinition] = useState<WordDefinition[]>([]);
-  const [word, setWord] = useState("");
+  const [word, setWord] = useState<string>("");
   const [error, setError] = useState("");
 
   useEffect(() => {
     const { request, cancel } = definitionService.getDefinition(word);
 
-    request
-      .then((res) => setDefinition(res.data))
-      .catch((err) => {
-        if (err instanceof CanceledError) return;
-        setError(err.message);
-      });
+    if (word != "") {
+      request
+        .then((res) => {
+          setDefinition(res.data);
+          setError("");
+        })
+        .catch((err: AxiosError) => {
+          if (err instanceof CanceledError) return;
+          setError(err.message);
+        });
+    }
 
     return () => cancel();
-  }, [word]);
+  }, [word, error]);
 
   return { definition, error, setWord };
 };

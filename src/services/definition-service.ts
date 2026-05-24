@@ -5,7 +5,7 @@ class DefinitionService {
   getDefinition(word: string) {
     const controller = new AbortController();
 
-    const request = apiClient.get<WordDefinition[] >(`/${word}`, {
+    const request = apiClient.get<WordDefinition[]>(`/${word}`, {
       signal: controller.signal,
     });
 
