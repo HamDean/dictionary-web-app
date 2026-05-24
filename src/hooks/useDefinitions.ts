@@ -1,7 +1,6 @@
 import { CanceledError } from "axios";
 import { useEffect, useState } from "react";
-import apiClient from "../assets/api-client";
-
+import definitionService from "../services/definition-service";
 interface Definition {
   definition: string;
 }
@@ -17,22 +16,21 @@ export interface Definitions {
   meanings: Meaning[];
 }
 
-const useDefinitions = () => {
+const useDefinitions = (word: string) => {
   const [definition, setDefinition] = useState<Definitions[]>([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const controller = new AbortController();
+    const { request, cancel } = definitionService.getDefinition(word);
 
-    apiClient
-      .get<Definitions[]>("/keyboad", { signal: controller.signal })
+    request
       .then((res) => setDefinition(res.data))
       .catch((err) => {
         if (err instanceof CanceledError) return;
         setError(err.message);
       });
 
-    return () => controller.abort();
+    return () => cancel();
   }, []);
 
   return { definition, error };
