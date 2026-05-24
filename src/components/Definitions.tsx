@@ -13,22 +13,26 @@ const Definitions = ({ meanings }: { meanings: Meaning[] }) => {
           </div>
 
           <span className="text-[#757575] text-[16px] mb-6 block">Meaning</span>
-          <ul className="list-disc marker:text-[#8F19E8] flex flex-col gap-3 mb-6">
+          <ul className="list-disc marker:text-[#8F19E8] text-[#2D2D2D] text-[15px] md:text-xl flex flex-col gap-3 mb-6">
             {meaning.definitions.map((def, defIndex) => (
               <li key={defIndex}>{def.definition}</li>
             ))}
           </ul>
 
-          <div className="flex gap-6">
-            <span className="text-[#757575] text-[16px] ">Synonyms</span>
-            <div className="text-[#A445ED] font-semibold flex gap-2">
-              {meaning.definitions.map((def, defIndex) =>
-                def.synonyms.map((synonym, synIndex) => (
-                  <span key={`${defIndex}-${synIndex}`}>{synonym}</span>
-                )),
-              )}
+          {meaning.synonyms.length > 0 && (
+            <div className="flex gap-6">
+              <span className="text-[#757575] text-[16px] ">Synonyms</span>
+              <div className="text-[#A445ED] font-semibold flex gap-2">
+                {meaning.synonyms.map((synonym, synIndex) => (
+                  <span key={synIndex}>{synonym}</span>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
+
+          {meaning.definitions.map(
+            (def, index) => def.example && <p className="text-[#757575] text-[15px] md:text-xl" key={index}>{`"${def.example}"`}</p>,
+          )}
         </section>
       ))}
     </>

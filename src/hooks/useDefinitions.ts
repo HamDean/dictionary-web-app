@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import definitionService from "../services/definition-service";
 interface Definition {
   definition: string;
-  synonyms: string[];
+  example?: string;
 }
 export interface Meaning {
   partOfSpeech: string;
+  synonyms: string[];
   definitions: Definition[];
 }
 
@@ -16,6 +17,7 @@ export interface WordDefinition {
   phonetics: {
     audio: string;
   }[];
+  sourceUrls: string[];
   meanings: Meaning[];
 }
 

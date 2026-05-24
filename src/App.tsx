@@ -6,7 +6,6 @@ import useDefinitions from "./hooks/useDefinitions";
 
 const App = () => {
   const { definition } = useDefinitions("keyboard");
-  console.log(definition[0]?.meanings)
 
   return (
     <div className="container">
@@ -19,6 +18,7 @@ const App = () => {
           audioSources={definition[0]?.phonetics}
         />
         <Definitions meanings={definition[0]?.meanings || []} />
+        <hr className="text-[#E9E9E9] mt-12 mb-5" />
       </main>
     </div>
   );
