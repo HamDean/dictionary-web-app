@@ -30,9 +30,12 @@ const Definitions = ({ meanings }: { meanings: Meaning[] }) => {
             </div>
           )}
 
-          {meaning.definitions.map(
-            (def, index) => def.example && <p className="text-[#757575] text-[15px] md:text-xl" key={index}>{`"${def.example}"`}</p>,
-          )}
+          {(() => {
+            const firstWithExample = meaning.definitions.find((d) => d.example);
+            return firstWithExample ? (
+              <p className="text-[#757575] text-[15px] md:text-xl">{`"${firstWithExample.example}"`}</p>
+            ) : null;
+          })()}
         </section>
       ))}
     </>
