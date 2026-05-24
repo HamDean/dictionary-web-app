@@ -22,7 +22,7 @@ const Definitions = ({ meanings }: { meanings: Meaning[] }) => {
           {meaning.synonyms.length > 0 && (
             <div className="flex gap-6">
               <span className="text-[#757575] text-[16px] ">Synonyms</span>
-              <div className="text-[#A445ED] font-semibold flex gap-2">
+              <div className="text-[#A445ED] font-semibold flex gap-2 flex-wrap">
                 {meaning.synonyms.map((synonym, synIndex) => (
                   <span key={synIndex}>{synonym}</span>
                 ))}

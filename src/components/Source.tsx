@@ -1,0 +1,13 @@
+import linkIcon from "../assets/link.svg";
+
+const Source = ({ source }: { source: string }) => {
+  return (
+    <div className="flex flex-col md:flex-row gap-0.5 md:gap-5 text-[14px] md:text-xl">
+      <p className="text-[#757575] underline">Source</p>
+      <span className="text-[#2D2D2D] underline flex gap-2.5">
+        <span>{source}</span> <img src={linkIcon} alt="Link" />
+      </span>
+    </div>
+  );
+};
+export default Source;

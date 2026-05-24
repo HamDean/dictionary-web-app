@@ -1,6 +1,7 @@
 import Definitions from "./components/Definitions";
 import NavBar from "./components/NavBar";
 import SearchBar from "./components/SearchBar";
+import Source from "./components/Source";
 import WordHeader from "./components/WordHeader";
 import useDefinitions from "./hooks/useDefinitions";
 
@@ -20,6 +21,9 @@ const App = () => {
         <Definitions meanings={definition[0]?.meanings || []} />
         <hr className="text-[#E9E9E9] mt-12 mb-5" />
       </main>
+      <footer>
+        <Source source={definition[0]?.sourceUrls[0]} />
+      </footer>
     </div>
   );
 };
