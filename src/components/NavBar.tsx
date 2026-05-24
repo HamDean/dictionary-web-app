@@ -3,7 +3,11 @@ import FontSelector from "./FontSelector";
 import Toggle from "./Toggle";
 import moon from "../assets/images/moon.svg";
 
-const NavBar = () => {
+interface Props {
+  onSelectFont: (font: string) => void;
+}
+
+const NavBar = ({ onSelectFont }: Props) => {
   return (
     <nav className="navbar">
       <div>
@@ -11,7 +15,7 @@ const NavBar = () => {
       </div>
 
       <div className="flex gap-4 md:gap-6">
-        <FontSelector />
+        <FontSelector onSelectFont={(font) => onSelectFont(font)} />
         <div className="flex gap-2">
           <Toggle />
           <img src={moon} className="h-5 self-center" />

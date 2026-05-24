@@ -9,8 +9,6 @@
   box-sizing: border-box;
 }
 
-
-
 body {
   padding: 24px;
 }
@@ -44,7 +42,7 @@ body {
 }
 
 .font-selector {
-  position: relative;
+  /* position: relative; */
 }
 
 .font-selector ul {
@@ -54,11 +52,11 @@ body {
   align-items: start;
   justify-content: center;
   gap: 16px;
-  position: absolute;
+  /* position: absolute; */
   padding: 24px;
   text-wrap: nowrap;
-  left: -8%;
-  margin-top: 6px;
+  /* left: -8%; */
+  /* margin-top: 6px; */
   border-radius: 16px;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
@@ -90,7 +88,7 @@ body {
   .font-selector ul {
     height: 152px;
     width: 183px;
-    left: -55%;
+    /* left: -55%; */
   }
 }
 

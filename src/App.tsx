@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Definitions from "./components/Definitions";
 import NavBar from "./components/NavBar";
 import SearchBar from "./components/SearchBar";
@@ -7,11 +8,18 @@ import useDefinitions from "./hooks/useDefinitions";
 
 const App = () => {
   const { definition, setWord } = useDefinitions();
+  const [font, setFont] = useState("Sans Serif");
   const isLoaded = definition[0]?.meanings?.length > 0;
+  const fontClass =
+    font === "Sans Serif"
+      ? "font-inter"
+      : font === "Serif"
+        ? "font-lora"
+        : "font-inconsolata";
 
   return (
-    <div className="container font-inconsolata">
-      <NavBar />
+    <div className={`container ${fontClass}`}>
+      <NavBar onSelectFont={(font) => setFont(font)} />
       <main className="mt-6 md:mt-14">
         <SearchBar onSearch={(word) => setWord(word)} />
         {isLoaded && (
