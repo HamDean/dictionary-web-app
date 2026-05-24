@@ -1,4 +1,4 @@
-import apiClient from "../assets/api-client";
+import apiClient from "./api-client";
 import type { WordDefinition } from "../hooks/useDefinitions";
 
 class DefinitionService {

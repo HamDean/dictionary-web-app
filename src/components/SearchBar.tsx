@@ -1,4 +1,4 @@
-import searchIcon from "../assets/search-icon.svg";
+import searchIcon from "../assets/images/search-icon.svg";
 
 interface Props {
   onSearch: (word: string) => void;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import downArrow from "../assets/down-arrow.svg";
+import downArrow from "../assets/images/down-arrow.svg";
 
 const FontSelector = () => {
   const [showFonts, setShowFonts] = useState(false);

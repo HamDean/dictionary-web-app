@@ -1,4 +1,4 @@
-import linkIcon from "../assets/link.svg";
+import linkIcon from "../assets/images/link.svg";
 
 const Source = ({ source }: { source: string }) => {
   return (

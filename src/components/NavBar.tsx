@@ -1,7 +1,7 @@
-import logo from "../assets/Logo.svg";
+import logo from "../assets/images/Logo.svg";
 import FontSelector from "./FontSelector";
 import Toggle from "./Toggle";
-import moon from "../assets/moon.svg";
+import moon from "../assets/images/moon.svg";
 
 const NavBar = () => {
   return (

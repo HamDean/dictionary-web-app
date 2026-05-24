@@ -1,4 +1,4 @@
-import playButton from "../assets/play-button.svg";
+import playButton from "../assets/images/play-button.svg";
 
 interface Props {
   audioSources?: { audio: string }[];
