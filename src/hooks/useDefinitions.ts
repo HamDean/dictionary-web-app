@@ -5,7 +5,7 @@ interface Definition {
   definition: string;
   synonyms: string[];
 }
-interface Meaning {
+export interface Meaning {
   partOfSpeech: string;
   definitions: Definition[];
 }
