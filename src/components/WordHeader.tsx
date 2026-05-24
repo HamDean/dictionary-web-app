@@ -1,22 +1,29 @@
 import playButton from "../assets/play-button.svg";
 
 interface Props {
-    audioSource: string;
-    word: string;
-    phonetic: string;
+  audioSources?: { audio: string }[];
+  word: string;
+  phonetic: string;
 }
 
-const WordHeader = ({ audioSource, word, phonetic }: Props) => {
+const WordHeader = ({ audioSources, word, phonetic }: Props) => {
   const playPronunciation = () => {
-    const audio = new Audio(audioSource);
-    audio.play();
+    for (const source of audioSources || []) {
+      if (source.audio) {
+        const audio = new Audio(source.audio);
+        audio.play();
+        break;
+      }
+    }
   };
 
   return (
     <section className="flex justify-between items-center mt-7">
       <div>
         <h1 className="text-4xl md:text-[64px] font-bold">{word}</h1>
-        <span className="text-[#A445ED] mt-2 text-[18px] md:text-2xl">{phonetic}</span>
+        <span className="text-[#A445ED] mt-2 text-[18px] md:text-2xl">
+          {phonetic}
+        </span>
       </div>
 
       <img

@@ -1,15 +1,15 @@
 import apiClient from "../assets/api-client";
-import type { Definitions } from "../hooks/useDefinitions";
+import type { WordDefinition } from "../hooks/useDefinitions";
 
 class DefinitionService {
   getDefinition(word: string) {
     const controller = new AbortController();
-    
-    const request = apiClient.get<Definitions[]>(`/${word}`, {
+
+    const request = apiClient.get<WordDefinition[] >(`/${word}`, {
       signal: controller.signal,
     });
 
-    return {request, cancel: () => controller.abort()};
+    return { request, cancel: () => controller.abort() };
   }
 }
 

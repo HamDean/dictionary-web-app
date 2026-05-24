@@ -3,21 +3,24 @@ import { useEffect, useState } from "react";
 import definitionService from "../services/definition-service";
 interface Definition {
   definition: string;
+  synonyms: string[];
 }
 interface Meaning {
   partOfSpeech: string;
   definitions: Definition[];
-  synonyms: string[];
 }
 
-export interface Definitions {
+export interface WordDefinition {
   word: string;
   phonetic: string;
+  phonetics: {
+    audio: string;
+  }[];
   meanings: Meaning[];
 }
 
 const useDefinitions = (word: string) => {
-  const [definition, setDefinition] = useState<Definitions[]>([]);
+  const [definition, setDefinition] = useState<WordDefinition[]>([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
