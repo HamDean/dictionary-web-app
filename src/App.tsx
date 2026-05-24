@@ -18,9 +18,6 @@ const App = () => {
         ? "font-lora"
         : "font-inconsolata";
 
-  console.log(definition);
-  console.log("not found", error);
-
   return (
     <div className={`container ${fontClass}`}>
       <NavBar onSelectFont={(font) => setFont(font)} />
