@@ -10,7 +10,7 @@ const App = () => {
   const isLoaded = definition[0]?.meanings?.length > 0;
 
   return (
-    <div className="container">
+    <div className="container font-inconsolata">
       <NavBar />
       <main className="mt-6 md:mt-14">
         <SearchBar onSearch={(word) => setWord(word)} />
