@@ -6,13 +6,15 @@ import WordHeader from "./components/WordHeader";
 import useDefinitions from "./hooks/useDefinitions";
 
 const App = () => {
-  const { definition } = useDefinitions("keyboard");
+  const { definition, setWord } = useDefinitions();
+
+  // TODO: handle initial load and error states
 
   return (
     <div className="container">
       <NavBar />
       <main className="mt-6 md:mt-14">
-        <SearchBar />
+        <SearchBar onSearch={(word) => setWord(word)} />
         <WordHeader
           word={definition[0]?.word}
           phonetic={definition[0]?.phonetic}

@@ -21,8 +21,9 @@ export interface WordDefinition {
   meanings: Meaning[];
 }
 
-const useDefinitions = (word: string) => {
+const useDefinitions = () => {
   const [definition, setDefinition] = useState<WordDefinition[]>([]);
+  const [word, setWord] = useState("");
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -36,9 +37,9 @@ const useDefinitions = (word: string) => {
       });
 
     return () => cancel();
-  }, []);
+  }, [word]);
 
-  return { definition, error };
+  return { definition, error, setWord };
 };
 
 export default useDefinitions;
