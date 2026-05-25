@@ -6,9 +6,10 @@ import Source from "./components/Source";
 import WordHeader from "./components/WordHeader";
 import useDefinitions from "./hooks/useDefinitions";
 import WordNotFound from "./components/WordNotFound";
+import WordHeaderSkeleton from "./components/WordHeaderSkeleton";
 
 const App = () => {
-  const { definition, setWord, error } = useDefinitions();
+  const { definition, setWord, error, loading } = useDefinitions();
   const [font, setFont] = useState("Sans Serif");
   const isLoaded = definition[0]?.meanings?.length > 0;
   const fontClass =
@@ -27,13 +28,16 @@ const App = () => {
       ) : (
         <>
           <main className="">
-            {isLoaded && (
-              <WordHeader
-                word={definition[0]?.word}
-                phonetic={definition[0]?.phonetic}
-                audioSources={definition[0]?.phonetics}
-              />
-            )}
+            {isLoaded &&
+              (loading ? (
+                <WordHeaderSkeleton />
+              ) : (
+                <WordHeader
+                  word={definition[0]?.word}
+                  phonetic={definition[0]?.phonetic}
+                  audioSources={definition[0]?.phonetics}
+                />
+              ))}
             <Definitions meanings={definition[0]?.meanings || []} />
             {isLoaded && <hr className="text-[#E9E9E9] mt-12 mb-5" />}
           </main>
