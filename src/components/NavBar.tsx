@@ -1,4 +1,4 @@
-import logo from "../assets/images/Logo.svg";
+import logo from "../assets/images/logo.svg";
 import FontSelector from "./FontSelector";
 import Toggle from "./Toggle";
 import moon from "../assets/images/moon.svg";
