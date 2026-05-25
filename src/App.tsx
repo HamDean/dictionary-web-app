@@ -21,36 +21,38 @@ const App = () => {
         : "font-inconsolata";
 
   return (
-    <div className={`container ${fontClass}`}>
-      <NavBar onSelectFont={(font) => setFont(font)} />
-      <SearchBar onSearch={(word) => setWord(word)} />
-      {error ? (
-        <WordNotFound />
-      ) : (
-        <>
-          <main className="">
-            {isLoaded &&
-              (loading ? (
-                <WordHeaderSkeleton />
+    <div className="dark:bg-black w-full min-h-screen p-6">
+      <div className={`container ${fontClass}`}>
+        <NavBar onSelectFont={(font) => setFont(font)} />
+        <SearchBar onSearch={(word) => setWord(word)} />
+        {error ? (
+          <WordNotFound />
+        ) : (
+          <>
+            <main className="">
+              {isLoaded &&
+                (loading ? (
+                  <WordHeaderSkeleton />
+                ) : (
+                  <WordHeader
+                    word={definition[0]?.word}
+                    phonetic={definition[0]?.phonetic}
+                    audioSources={definition[0]?.phonetics}
+                  />
+                ))}
+              {loading ? (
+                <MeaningSkeleton />
               ) : (
-                <WordHeader
-                  word={definition[0]?.word}
-                  phonetic={definition[0]?.phonetic}
-                  audioSources={definition[0]?.phonetics}
-                />
-              ))}
-            {loading ? (
-              <MeaningSkeleton />
-            ) : (
-              <Definitions meanings={definition[0]?.meanings || []} />
-            )}
-            {isLoaded && <hr className="text-[#E9E9E9] mt-12 mb-5" />}
-          </main>
-          <footer>
-            {isLoaded && <Source source={definition[0]?.sourceUrls[0]} />}
-          </footer>
-        </>
-      )}
+                <Definitions meanings={definition[0]?.meanings || []} />
+              )}
+              {isLoaded && <hr className="text-[#E9E9E9] mt-12 mb-5" />}
+            </main>
+            <footer>
+              {isLoaded && <Source source={definition[0]?.sourceUrls[0]} />}
+            </footer>
+          </>
+        )}
+      </div>
     </div>
   );
 };
