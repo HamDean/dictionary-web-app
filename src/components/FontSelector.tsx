@@ -11,7 +11,7 @@ const FontSelector = ({ onSelectFont }: Props) => {
   const fonts = ["Sans Serif", "Serif", "Mono"];
 
   return (
-    <div className="font-selector">
+    <div className="font-selector ">
       <div
         onClick={() => setShowFonts(!showFonts)}
         className="font-selector-headear"
@@ -20,7 +20,10 @@ const FontSelector = ({ onSelectFont }: Props) => {
       </div>
 
       {showFonts && (
-        <ul className="absolute z-10000000 opacity-100 bg-white">
+        <ul
+          className="absolute z-10000000 opacity-100 bg-white dark:bg-[#1F1F1F] 
+        dark:text-white"
+        >
           {fonts.map((font, index) => (
             <li
               onClick={() => {

@@ -13,7 +13,7 @@ const Definitions = ({ meanings }: { meanings: Meaning[] }) => {
           </div>
 
           <span className="text-[#757575] text-[16px] mb-6 block">Meaning</span>
-          <ul className="list-disc marker:text-[#8F19E8] text-[#2D2D2D] text-[15px] md:text-xl flex flex-col gap-3 mb-6">
+          <ul className="list-disc marker:text-[#8F19E8] dark:text-white text-[#2D2D2D] text-[15px] md:text-xl flex flex-col gap-3 mb-6">
             {meaning.definitions.map((def, defIndex) => (
               <li key={defIndex}>{def.definition}</li>
             ))}

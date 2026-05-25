@@ -15,7 +15,7 @@ const Toggle = () => {
   return (
     <input
       type="checkbox"
-      className="toggle w-10 h-5 self-center"
+      className="toggle w-10 h-5 self-center dark:bg-[#A445ED] dark:border-none dark:text-white"
       checked={theme === "dark"}
       onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
     />

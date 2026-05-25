@@ -21,7 +21,7 @@ const App = () => {
         : "font-inconsolata";
 
   return (
-    <div className="dark:bg-black w-full min-h-screen p-6">
+    <div className="dark:bg-black dark:text-white w-full min-h-screen p-6">
       <div className={`container ${fontClass}`}>
         <NavBar onSelectFont={(font) => setFont(font)} />
         <SearchBar onSearch={(word) => setWord(word)} />
@@ -29,7 +29,7 @@ const App = () => {
           <WordNotFound />
         ) : (
           <>
-            <main className="">
+            <main>
               {isLoaded &&
                 (loading ? (
                   <WordHeaderSkeleton />
