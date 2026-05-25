@@ -29,7 +29,7 @@ const WordHeader = ({ audioSources, word, phonetic }: Props) => {
       <img
         src={playButton}
         alt="Play pronunciation"
-        className="w-12 h-12 cursor-pointer"
+        className="w-12 h-12 md:h-18.75 md:w-18.75 cursor-pointer"
         onClick={playPronunciation}
       />
     </section>
