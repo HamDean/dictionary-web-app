@@ -7,6 +7,7 @@ import WordHeader from "./components/WordHeader";
 import useDefinitions from "./hooks/useDefinitions";
 import WordNotFound from "./components/WordNotFound";
 import WordHeaderSkeleton from "./components/WordHeaderSkeleton";
+import MeaningSkeleton from "./components/MeaningSkeleton";
 
 const App = () => {
   const { definition, setWord, error, loading } = useDefinitions();
@@ -38,7 +39,11 @@ const App = () => {
                   audioSources={definition[0]?.phonetics}
                 />
               ))}
-            <Definitions meanings={definition[0]?.meanings || []} />
+            {loading ? (
+              <MeaningSkeleton />
+            ) : (
+              <Definitions meanings={definition[0]?.meanings || []} />
+            )}
             {isLoaded && <hr className="text-[#E9E9E9] mt-12 mb-5" />}
           </main>
           <footer>
